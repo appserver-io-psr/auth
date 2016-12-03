@@ -79,6 +79,97 @@ class AuthenticationManagerWrapper implements AuthenticationManagerInterface
     }
 
     /**
+     * Add's the passed realm the the authentication manager.
+     *
+     * @param \AppserverIo\Appserver\ServletEngine\Security\RealmInterface $realm The realm to add
+     *
+     * @return void
+     */
+    public function addRealm(RealmInterface $realm)
+    {
+        $this->getAuthenticationManager()->addRealm($realm);
+    }
+
+    /**
+     * Returns the map with the security domains.
+     *
+     * @return \AppserverIo\Collections\MapInterface The security domains
+     */
+    public function getRealms()
+    {
+        return $this->getAuthenticationManager()->getRealms();
+    }
+
+    /**
+     * Register's the passed authenticator.
+     *
+     * @param \AppserverIo\Appserver\ServletEngine\Authenticator\AuthenticatorInterface $authenticator The authenticator to add
+     *
+     * @return void
+     */
+    public function addAuthenticator(AuthenticatorInterface $authenticator)
+    {
+        $this->getAuthenticationManager()->addAuthenticator($authenticator);
+    }
+
+    /**
+     * Returns the configured authenticator for the passed URL pattern authenticator mapping.
+     *
+     * @param \AppserverIo\Appserver\ServletEngine\Security\MappingInterface|null $mapping The URL pattern to authenticator mapping
+     *
+     * @return \AppserverIo\Storage\StorageInterface The storage with the authentication types
+     * @throws \AppserverIo\Http\Authentication\AuthenticationException Is thrown if the authenticator with the passed key is not available
+     */
+    public function getAuthenticator(MappingInterface $mapping = null)
+    {
+        return $this->getAuthenticationManager()->getAuthenticator($mapping);
+    }
+
+    /**
+     * Returns the configured authentication types.
+     *
+     * @return \AppserverIo\Storage\StorageInterface The storage with the authentication types
+     */
+    public function getAuthenticators()
+    {
+        return $this->getAuthenticationManager()->getAuthenticators();
+    }
+
+    /**
+     * Register's a new URL pattern to authentication type mapping.
+     *
+     * @param \AppserverIo\Appserver\ServletEngine\Security\MappingInterface $mapping The URL pattern to authenticator mapping
+     *
+     * @return void
+     */
+    public function addMapping(MappingInterface $mapping)
+    {
+        $this->getAuthenticationManager()->addMapping($mapping);
+    }
+
+    /**
+     * Return's the storage for the URL pattern to authenticator mappings.
+     *
+     * @return \AppserverIo\Storage\StorageInterface The storage instance
+     */
+    public function getMappings()
+    {
+        return $this->getAuthenticationManager()->getMappings();
+    }
+
+    /**
+     * Returns the realm with the passed name.
+     *
+     * @param string $realmName The name of the requested realm
+     *
+     * @return object The requested realm instance
+     */
+    public function getRealm($realmName)
+    {
+        return $this->getAuthenticationManager()->getRealm($realmName);
+    }
+
+    /**
      * The managers unique identifier.
      *
      * @return string The unique identifier
