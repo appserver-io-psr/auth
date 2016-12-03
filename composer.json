@@ -1,0 +1,41 @@
+{
+	"name" : "appserver-io-psr/auth",
+	"description" : "PSR, for a PHP based authentication module",
+	"homepage" : "https://github.com/appserver-io-psr/auth",
+	"license" : "OSL-3.0",
+	"keywords" : [
+		"php",
+		"interface",
+		"authentication"
+	],
+	"authors" : [{
+			"name" : "Tim Wagner",
+			"email" : "tw@appserver.io",
+			"homepage" : "http://www.appserver.io",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.4.0",
+        "appserver-io/collections" : "~1.0",
+        "appserver-io-psr/servlet": "~3.0",
+		"appserver-io-psr/security" : "~1.0",
+        "appserver-io-psr/application": "~1.0"
+	},
+	"require-dev" : {
+		"appserver-io/build" : "~1.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"AppserverIo\\Psr\\Auth\\" : [
+				"src/",
+				"tests/"
+			]
+		}
+	},
+	"support" : {
+		"email" : "tw@appserver.io",
+		"issues" : "https://github.com/appserver-io-psr/auth/issues",
+		"source" : "https://github.com/appserver-io-psr/auth"
+	}
+}
