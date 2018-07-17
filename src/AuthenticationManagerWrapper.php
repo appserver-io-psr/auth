@@ -203,4 +203,26 @@ class AuthenticationManagerWrapper implements AuthenticationManagerInterface
     {
         return $this->getAuthenticationManager()->getAttribute($key);
     }
+
+    /**
+     * Stops the manager instance.
+     *
+     * @return void
+     */
+    public function stop()
+    {
+        $this->getAuthenticationManager()->stop();
+    }
+
+    /**
+     * Lifecycle callback that'll be invoked after the application has been started.
+     *
+     * @param \AppserverIo\Psr\Application\ApplicationInterface $application The application instance
+     *
+     * @return void
+     */
+    public function postStartup(ApplicationInterface $application)
+    {
+        $this->getAuthenticationManager()->postStartup($application);
+    }
 }
